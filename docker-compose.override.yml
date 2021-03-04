@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    ports:
+      - 8069:8069
+      - 8072:8072
+    volumes:
+      - ./config/odoo.dev.conf:/etc/odoo/odoo.conf
+  pgadmin:
+    image: dpage/pgadmin4:3
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin
+      - PGADMIN_DEFAULT_PASSWORD=admin123
+    ports:
+      - 8070:80
+
